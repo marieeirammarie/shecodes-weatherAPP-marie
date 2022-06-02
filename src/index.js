@@ -70,6 +70,15 @@ function showSearchedTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = temperature;
+  let humidity = Math.round(response.data.main.humidity);
+  let humidityElement = document.querySelector("#current-humidity");
+  humidityElement.innerHTML = humidity;
+  let wind = Math.round(response.data.wind.speed);
+  let windElement = document.querySelector("#current-wind");
+  windElement.innerHTML = wind;
+  let rain = response.data.precipitation.mode;
+  let rainElement = document.querySelector("#current-rain-chance");
+  rainElement.innerHTML = rain;
 }
 
 // Function 4
