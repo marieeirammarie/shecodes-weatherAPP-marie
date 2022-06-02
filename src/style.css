@@ -98,3 +98,30 @@ input[type="text"] {
   padding: 10px 30px 10px 30px;
   font-size: 30px;
 }
+#current-temperature {
+  text-align: center;
+  margin: 0 auto;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: darkblue;
+  padding: 10px 30px 10px 30px;
+  font-size: 30px;
+}
+#celsius {
+  text-align: center;
+  margin: 0 auto;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: darkblue;
+  padding: 10px 30px 10px 30px;
+  font-size: 30px;
+  position: relative;
+  line-height: 1;
+  top: -24px;
+}
+#fahrenheit {
+  text-align: center;
+  margin: 0 auto;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: darkblue;
+  padding: 10px 30px 10px 30px;
+  font-size: 30px;
+}
