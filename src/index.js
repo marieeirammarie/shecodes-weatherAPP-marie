@@ -67,17 +67,18 @@ navigator.geolocation.getCurrentPosition(loadCurrentStatus);
 
 // Function 5
 function showSearchedTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#current-temperature");
-  temperatureElement.innerHTML = temperature;
-  let humidity = Math.round(response.data.main.humidity);
   let humidityElement = document.querySelector("#current-humidity");
-  humidityElement.innerHTML = humidity;
-  let wind = Math.round(response.data.wind.speed);
   let windElement = document.querySelector("#current-wind");
-  windElement.innerHTML = wind;
-  let rain = response.data.precipitation.mode;
   let rainElement = document.querySelector("#current-rain-chance");
+  celsiusTemperature = response.data.main.temp;
+  let temperature = Math.round(celsiusTemperature);
+  let humidity = Math.round(response.data.main.humidity);
+  let wind = Math.round(response.data.wind.speed);
+  let rain = response.data.precipitation.mode;
+  temperatureElement.innerHTML = temperature;
+  humidityElement.innerHTML = humidity;
+  windElement.innerHTML = wind;
   rainElement.innerHTML = rain;
 }
 
@@ -96,12 +97,35 @@ function loadSearchedCity(event) {
     alert(showCurrentStatus);
   }
 }
+// Function 7: Calculate Fahrenheit & Celsius
+function showFahrenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#current-temperature");
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  let fahrenheitTemperature = (celsiusTemperature.innerHTML * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  fahrenheit.classList.add("active");
+  celsius.classList.remove("active");
+  let temperature = document.querySelector("#current-temperature");
+  temperature.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", showFahrenheit);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", showCelsius);
 
 // Alert Function 4 & 5: Search current Location/ User types in desired city name & API sends info to weather app
 let searchCity = document.querySelector("#submit-city");
 searchCity.addEventListener("click", loadSearchedCity);
-
-// Function 7:
 
 // Function 6:
 // function loadCurrentStatus(position){
